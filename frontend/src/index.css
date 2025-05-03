@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #4f46e5; /* Indigo-600 */
+  --primary-dark: #4338ca; /* Indigo-700 */
+  --secondary: #0ea5e9; /* Sky-500 */
+  --accent: #8b5cf6; /* Violet-500 */
+  --light: #f9fafb; /* Gray-50 */
+  --dark: #1f2937; /* Gray-800 */
+  --success: #10b981; /* Emerald-500 */
+  --warning: #f59e0b; /* Amber-500 */
+  --danger: #ef4444; /* Red-500 */
+}
+
+body {
+  background: url(../BG2.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} 
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+/* Custom scrollbar class */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar {
+  /* Customize the scrollbar width */
+  width:6px;
+}
+
+::-webkit-scrollbar-track {
+  /* Customize the scrollbar track */
+  background-color: aliceblue;
+}
+
+::-webkit-scrollbar-thumb {
+  /* Customize the scrollbar thumb */
+  background: #1b1b1b;
+  border-radius: 10px;
+}
+
+/* Add these rules at the end of your CSS file */
+
+/* Hide horizontal scrollbar for all elements */
+::-webkit-scrollbar-horizontal {
+  display: none;
+}
+
+/* Hide horizontal scrollbar for the whole page */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Ensure the app container doesn't cause overflow */
+#root {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Add these rules at the end of your CSS file */
+
+/* Hide horizontal scrollbar for all elements */
+::-webkit-scrollbar-horizontal {
+  display: none;
+}
+
+/* Hide horizontal scrollbar for the whole page */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Ensure the app container doesn't cause overflow */
+#root {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
