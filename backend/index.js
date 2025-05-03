@@ -17,7 +17,6 @@ dotenv.config();
 
 // Add this near the top of your file
 const PORT = process.env.PORT || 8080;
-const SOCKET_PORT = process.env.PORT || 8081; // Note: On Render, you'll use the same port
 const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
 
 // CORS configuration - Keep only this one
@@ -38,15 +37,12 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/message", messageRoute);
 
-// Start HTTP server
-app.listen(PORT, () => {
-    connectDB();
-    console.log(`HTTP Server listening on port ${PORT}`);
-});
+// Connect to database
+connectDB();
 
-// Start Socket.IO server
-server.listen(SOCKET_PORT, () => {
-    console.log(`Socket.IO Server listening on port ${SOCKET_PORT}`);
+// Start only the Socket.IO server (which includes the Express app)
+server.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
 });
 
 // Add this after your other middleware
