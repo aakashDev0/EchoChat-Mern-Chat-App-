@@ -15,21 +15,24 @@ const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
+// Add this near the top of your file
 const PORT = process.env.PORT || 8080;
-const SOCKET_PORT = process.env.SOCKET_PORT || 8081;
+const SOCKET_PORT = process.env.PORT || 8081; // Note: On Render, you'll use the same port
+const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
+
+// CORS configuration - Keep only this one
+const corsOption = {
+  origin: CLIENT_URL,
+  credentials: true
+};
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const corsOption = {
-    origin: 'http://localhost:5173',
-    credentials: true
-};
-
 app.use(cors(corsOption));
 
-// Serve static files from uploads directory with absolute path - KEEP ONLY THIS ONE
+// Serve static files from uploads directory with absolute path
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use("/api/v1/user", userRoute);

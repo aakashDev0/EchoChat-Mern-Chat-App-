@@ -25,7 +25,8 @@ const Sidebar = () => {
   // Logout handler
   const logoutHandler = async () => {
     try {
-      const res = await axios.get('http://localhost:8080/api/v1/user/logout');
+      // const res = await axios.get('http://localhost:8080/api/v1/user/logout');
+      const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:8080'}/api/v1/user/logout`);
       navigate('/login');
       toast.success(res.data.message);
       dispatch(setAuthUser(null))
@@ -50,7 +51,8 @@ const Sidebar = () => {
       setIsSearching(true);
       
       try {
-        const res = await axios.get(`http://localhost:8080/api/v1/user/search?query=${search}`, {
+        // const res = await axios.get(`http://localhost:8080/api/v1/user/search?query=${search}`, {
+          const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:8080'}/api/v1/user/search?query=${search}`, {
           withCredentials: true
         });
         

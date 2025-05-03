@@ -4,11 +4,12 @@ import express from "express";
 
 const app = express();
 const server = http.createServer(app);
+// Update the CORS configuration
 const io = new Server(server, {
-    cors: {
-        origin: "http://localhost:5173",
-        credentials: true
-    }
+  cors: {
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    credentials: true
+  }
 });
 
 const userSocketMap = new Map(); // Using Map for better performance

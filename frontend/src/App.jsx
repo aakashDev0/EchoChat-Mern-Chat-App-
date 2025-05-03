@@ -26,7 +26,11 @@ function App() {
 
   useEffect(() => {
     if (authUser) {
-      const newSocket = io("http://localhost:8081", {
+      // Replace this line
+      // const newSocket = io("http://localhost:8081", {
+      
+      // With this
+      const newSocket = io(import.meta.env.VITE_SOCKET_URL || "http://localhost:8081", {
         query: {
           userId: authUser._id,
           tabId: Date.now(), // Unique identifier for each connection

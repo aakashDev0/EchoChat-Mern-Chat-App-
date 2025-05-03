@@ -51,7 +51,8 @@ const Message = ({message}) => {
 
     const deleteMessage = async () => {
         try {
-            await axios.delete(`http://localhost:8080/api/v1/message/delete/${message._id}`, {
+            // await axios.delete(`http://localhost:8080/api/v1/message/delete/${message._id}`, {
+                await axios.delete(`${import.meta.env.VITE_API_URL || 'http://localhost:8080'}/api/v1/message/delete/${message._id}`, {
                 withCredentials: true
             });
             
@@ -71,7 +72,8 @@ const Message = ({message}) => {
         if (!message?.file) return null;
 
         const { mimetype, filename, originalname } = message.file;
-        const fileUrl = `http://localhost:8080/uploads/${filename}`;
+        // const fileUrl = `http://localhost:8080/uploads/${filename}`;
+        const fileUrl = `${import.meta.env.VITE_API_URL || 'http://localhost:8080'}/uploads/${filename}`;
 
         if (mimetype?.startsWith('image/')) {
             return <img src={fileUrl} alt="shared" className="max-w-full md:max-w-[200px] rounded-md mt-2" />;
