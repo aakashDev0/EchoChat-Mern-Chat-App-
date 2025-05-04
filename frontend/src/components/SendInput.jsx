@@ -86,10 +86,6 @@ const SendInput = () => {
       }
 
       const res = await axios.post(
-        // Replace this line
-        `http://localhost:8080/api/v1/message/send/${selectedUser._id}`,
-        
-        // With this
         `${import.meta.env.VITE_API_URL || 'http://localhost:8080'}/api/v1/message/send/${selectedUser._id}`,
         formData,
         {
