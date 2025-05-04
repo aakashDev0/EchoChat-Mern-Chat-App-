@@ -9,7 +9,7 @@ const Signup = () => {
     fullName: "",
     username: "",
     password: "",
-    conformPassword: "",
+    confirmPassword: "", // Changed from conformPassword
     gender: "",
   })
   const navigate = useNavigate();
@@ -36,12 +36,13 @@ const handleCheckbox=(gender)=>{
     } catch (error) {
       console.log(error)
     }
+    // And also update it in the reset function
     setUser({
       fullName: "",
-    username: "",
-    password: "",
-    conformPassword: "",
-    gender: "",
+      username: "",
+      password: "",
+      confirmPassword: "", // Changed from conformPassword
+      gender: "",
     })
   }
   return (
