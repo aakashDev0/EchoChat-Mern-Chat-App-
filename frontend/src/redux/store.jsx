@@ -8,7 +8,7 @@ import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 const persistConfig = {
     key: "root",
     storage,
-    blacklist: ['socket'] 
+    blacklist: ['socket', 'user'] // Add 'user' to blacklist to prevent persisting user state
 };
 
 const persistedUserReducer = persistReducer(persistConfig, userReducer);

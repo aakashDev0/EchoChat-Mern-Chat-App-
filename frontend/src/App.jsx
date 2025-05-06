@@ -7,7 +7,7 @@ import HomePage from './components/HomePage';
 import { useDispatch, useSelector } from 'react-redux';
 import io from "socket.io-client";
 import { setSocketId } from './redux/socketSlice';
-import { setOnlineUsers } from './redux/userSlice';
+import { setAuthUser, setOnlineUsers } from './redux/userSlice';
 
 // Create a socket manager to avoid circular dependencies
 const socketManager = {
@@ -23,6 +23,20 @@ const socketManager = {
 function App() {
   const dispatch = useDispatch();
   const { authUser } = useSelector(store => store.user);
+
+  // Add this effect to clear auth on page refresh/close
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      // Clear auth user on page refresh/close
+      dispatch(setAuthUser(null));
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [dispatch]);
 
   useEffect(() => {
     if (authUser) {
