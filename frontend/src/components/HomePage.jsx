@@ -22,7 +22,7 @@ const HomePage = () => {
       </div>
       
       {/* Message container - always visible and centered */}
-      <div className="flex-1 flex items-center justify-center w-full h-full px-0 sm:px-2 md:px-4">
+      <div className="flex-1 flex items-center justify-center w-full h-full">
         <MessageContainer />
       </div>
     </div>
