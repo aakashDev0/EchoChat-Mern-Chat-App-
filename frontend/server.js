@@ -1,21 +1,21 @@
-import { serve } from '@hono/node-server'
-import { serveStatic } from '@hono/node-server/serve-static'
-import { Hono } from 'hono'
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const app = new Hono()
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Serve static files
-app.use('/*', serveStatic({ root: './dist' }))
+const app = express();
 
-// Fallback for SPA routing
-app.get('*', (c) => {
-  return c.html(Bun.file('./dist/index.html'))
-})
+// Serve static files from the dist directory
+app.use(express.static(path.join(__dirname, 'dist')));
 
-const port = process.env.PORT || 3000
-console.log(`Server running on port ${port}`)
+// For any request that doesn't match a static file, send the index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
-serve({
-  fetch: app.fetch,
-  port
-})
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
