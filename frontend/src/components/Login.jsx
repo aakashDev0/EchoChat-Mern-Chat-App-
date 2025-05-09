@@ -12,31 +12,30 @@ const Login = () => {
    })
    const dispatch = useDispatch();
    const navigate = useNavigate();
-   const [isLoading, setIsLoading] = useState(false);
-   
-   const onSubmitHandler = async(e) => {
+   const onSubmitHandler= async(e)=>{
      e.preventDefault();
-     setIsLoading(true); 
      try {
       // const res = await axios.post('http://localhost:8080/api/v1/user/login',user,{
-       const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:8080'}/api/v1/user/login`,user,{
-       // const res = await axios.post('http://192.168.43.217:8080/api/v1/user/login',user,{
-     
-       headers:{
-         'Content-Type':'application/json'
-       },
-       withCredentials:true
+        const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:8080'}/api/v1/user/login`,user,{
+        // const res = await axios.post('http://192.168.43.217:8080/api/v1/user/login',user,{
+      
+        headers:{
+          'Content-Type':'application/json'
+        },
+        withCredentials:true
+      })
+        navigate("/");
+        console.log(res);
+        dispatch(setAuthUser(res.data));
+      
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log(error)
+    }
+     setUser({
+     username: "",
+     password: "",
      })
-       navigate("/");
-       console.log(res);
-       dispatch(setAuthUser(res.data));
-     
-   } catch (error) {
-     toast.error(error.response.data.message);
-     console.log(error)
-   } finally {
-     setIsLoading(false); 
-   }
    }
 
   return (
@@ -79,10 +78,7 @@ const Login = () => {
             </div>
 
             <div>
-            
-              <button type='submit' className='btn btn-block btn-sm mt-2 border border-slate-700' disabled={isLoading}>
-                {isLoading ? 'Login....' : 'Login'}
-              </button>
+              <button type='submit' className='btn btn-block btn-sm mt-2 border border-slate-700'>Login</button>
             </div>
           </form>
         </div>
