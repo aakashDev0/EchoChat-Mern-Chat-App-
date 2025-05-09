@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import OtherUsers from './OtherUsers';
 import axios from 'axios';
-import toast from 'react-hot-toast';
+import { toast} from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAuthUser, setOtherUsers } from '../redux/userSlice';
@@ -28,7 +28,7 @@ const Sidebar = () => {
       // const res = await axios.get('http://localhost:8080/api/v1/user/logout');
       const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:8080'}/api/v1/user/logout`);
       navigate('/login');
-      toast.success(res.data.message);
+      toast.success("Logout successful!");
       dispatch(setAuthUser(null))
     } catch (error) {
       console.error(error);
@@ -85,6 +85,7 @@ const Sidebar = () => {
   }, [search, dispatch, originalUsers]);
 
   return (
+    <>
     <div className="border-r border-white/20 p-4 flex flex-col bg-gray-800/40 w-full md:w-80 h-full overflow-hidden">
       <div className="relative mb-3">
         <input
@@ -122,6 +123,7 @@ const Sidebar = () => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 

@@ -43,7 +43,6 @@ const Login = () => {
 
   return (
     <>
-    <ToastContainer />
     <div className='w-full h-full flex items-center justify-center p-0'>
       <div className='w-full max-w-md px-0 mx-auto my-auto'>
         <div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-25 border border-gray-900'>

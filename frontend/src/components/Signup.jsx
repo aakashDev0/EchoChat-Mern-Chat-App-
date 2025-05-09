@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 import axios from "axios"
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 
@@ -49,7 +49,6 @@ const handleCheckbox=(gender)=>{
   }
   return (
     <>
-    <ToastContainer />
     <div className='w-full h-full flex items-center justify-center p-0'>
       <div className='w-full max-w-md px-0 mx-auto my-auto'>
         <div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-25 border border-gray-900'>
