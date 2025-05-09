@@ -25,10 +25,14 @@ function App() {
   const { authUser } = useSelector(store => store.user);
 
   // Add this effect to clear auth on page refresh/close
+
   useEffect(() => {
-    const handleBeforeUnload = () => {
-      // Clear auth user on page refresh/close
-      dispatch(setAuthUser(null));
+    const handleBeforeUnload = (e) => {
+  
+      if (!e.persisted) {
+    
+        dispatch(setAuthUser(null));
+      }
     };
 
     window.addEventListener('beforeunload', handleBeforeUnload);
