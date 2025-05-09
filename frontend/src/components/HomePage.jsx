@@ -7,7 +7,7 @@ const HomePage = () => {
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    <div className='sm:h-[450px] md:h-[550px] lg:h-[650px] h-[100vh] flex relative rounded-xl overflow-hidden bg-white/10 backdrop-filter backdrop-blur-md bg-opacity-20 border border-white/20 shadow-xl max-w-full'>
+    <div className='sm:h-[450px] md:h-[550px] lg:h-[650px] h-[100vh] flex relative rounded-xl overflow-hidden bg-white/10 backdrop-filter backdrop-blur-md bg-opacity-20 border border-white/20 shadow-xl w-full mx-auto my-auto'>
       {/* Hamburger menu button - only visible on mobile */}
       <button 
         onClick={() => setShowSidebar(!showSidebar)}

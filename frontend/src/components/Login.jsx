@@ -39,47 +39,49 @@ const Login = () => {
    }
 
   return (
-    <div className='w-full max-w-md px-4 mx-auto'>
-      <div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-25 border border-gray-100'>
-        <h1 className='text-3xl font-bold text-center'>Login</h1>
-        <form onSubmit={onSubmitHandler} action="">
-          <div>
-            <label className='label p-2'>
-              <span className='text-base label-text'>Username</span>
-            </label>
-            <input 
-              value={user.username|| ""}
-              onChange={(e)=>setUser({...user,username:e.target.value})}
-              className='w-full input input-bordered h-10' 
-              type="text" 
-              placeholder='Username' 
-            />
-          </div>
-          <div>
-            <label className='label p-2'>
-              <span className='text-base label-text'>Password</span>
-            </label>
-            <input 
-              value={user.password|| ""}
-              onChange={(e)=>setUser({...user,password:e.target.value})}
-              className='w-full input input-bordered h-10' 
-              type="password" 
-              placeholder='Password' 
-            />
-          </div>
-          <div className='p-2'>
-            <p className='text-center'>
-              Don't have an account?
-              <Link to="/register" className='underline ml-1'>
-                Signup
-              </Link>
-            </p>
-          </div>
+    <div className='w-full h-full flex items-center justify-center p-0'>
+      <div className='w-full max-w-md px-0 mx-auto my-auto'>
+        <div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-25 border border-gray-900'>
+          <h1 className='text-3xl font-bold text-center text-slate-900'>Login</h1>
+          <form onSubmit={onSubmitHandler} action="">
+            <div>
+              <label className='label p-2'>
+                <span className='text-base label-text'>Username</span>
+              </label>
+              <input 
+                value={user.username|| ""}
+                onChange={(e)=>setUser({...user,username:e.target.value})}
+                className='w-full input input-bordered h-10' 
+                type="text" 
+                placeholder='Username' 
+              />
+            </div>
+            <div>
+              <label className='label p-2'>
+                <span className='text-base label-text '>Password</span>
+              </label>
+              <input 
+                value={user.password|| ""}
+                onChange={(e)=>setUser({...user,password:e.target.value})}
+                className='w-full input input-bordered h-10' 
+                type="password" 
+                placeholder='Password' 
+              />
+            </div>
+            <div className='p-2'>
+              <p className='text-center text-gray-300'>
+                Don't have an account?
+                <Link to="/register" className='underline ml-1 text-gray-200'>
+                  Signup
+                </Link>
+              </p>
+            </div>
 
-          <div>
-            <button type='submit' className='btn btn-block btn-sm mt-2 border border-slate-700'>Login</button>
-          </div>
-        </form>
+            <div>
+              <button type='submit' className='btn btn-block btn-sm mt-2 border border-slate-700'>Login</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   )
