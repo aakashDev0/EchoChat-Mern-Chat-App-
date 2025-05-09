@@ -13,8 +13,6 @@ export default defineConfig({
         manualChunks: undefined,
       },
     },
-    // Ensures the _redirects file is included in the build
-    outDir: 'dist',
   },
 })
 
