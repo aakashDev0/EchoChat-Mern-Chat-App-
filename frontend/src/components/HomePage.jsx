@@ -2,12 +2,16 @@ import React, { useState } from 'react'
 import Sidebar from './Sidebar'
 import MessageContainer from './MessageContainer'
 import { FaBars, FaTimes } from 'react-icons/fa'
+import { ToastContainer } from 'react-toastify'
 
 const HomePage = () => {
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    <div className='sm:h-[450px] md:h-[550px] lg:h-[650px] h-[100vh] flex relative rounded-xl overflow-hidden bg-white/10 backdrop-filter backdrop-blur-md bg-opacity-20 border border-white/20 shadow-xl max-w-5xl mx-auto my-auto'>
+
+  <>
+  <ToastContainer />
+      <div className='sm:h-[450px] md:h-[550px] lg:h-[650px] h-[100vh] flex relative rounded-xl overflow-hidden bg-white/10 backdrop-filter backdrop-blur-md bg-opacity-20 border border-white/20 shadow-xl max-w-5xl mx-auto my-auto'>
       {/* Hamburger menu button - only visible on mobile */}
       <button 
         onClick={() => setShowSidebar(!showSidebar)}
@@ -26,6 +30,8 @@ const HomePage = () => {
         <MessageContainer />
       </div>
     </div>
+    </>
+
   )
 }
 

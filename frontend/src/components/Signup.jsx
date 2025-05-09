@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 import axios from "axios"
-import toast from 'react-hot-toast'
+import { toast, ToastContainer } from 'react-toastify';
+
 
 
 const Signup = () => {
@@ -30,11 +31,12 @@ const handleCheckbox=(gender)=>{
       })
       if(res.data.success){
         navigate("/login")
-        toast.success(res.data.message);
+        toast.success("Account Created Successfully!");
 
       }
     } catch (error) {
       console.log(error)
+      toast.error(error.response?.data?.message || "Signup failed");
     }
     // And also update it in the reset function
     setUser({
@@ -46,6 +48,8 @@ const handleCheckbox=(gender)=>{
     })
   }
   return (
+    <>
+    <ToastContainer />
     <div className='w-full h-full flex items-center justify-center p-0'>
       <div className='w-full max-w-md px-0 mx-auto my-auto'>
         <div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-25 border border-gray-900'>
@@ -135,6 +139,7 @@ const handleCheckbox=(gender)=>{
         </div>
       </div>
     </div>
+    </>
   )
 }
 

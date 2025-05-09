@@ -8,7 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import io from "socket.io-client";
 import { setSocketId } from './redux/socketSlice';
 import { setAuthUser, setOnlineUsers } from './redux/userSlice';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // Create a socket manager to avoid circular dependencies
 const socketManager = {
   socket: null,
@@ -101,6 +102,7 @@ function App() {
   return (
     <div className="p-0 h-screen w-screen flex items-center justify-center overflow-hidden">
       <RouterProvider router={router} />
+      <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );
 }

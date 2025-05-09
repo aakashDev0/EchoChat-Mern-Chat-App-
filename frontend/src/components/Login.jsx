@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
-import toast from 'react-hot-toast'
+import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { setAuthUser } from '../redux/userSlice'
@@ -24,12 +24,15 @@ const Login = () => {
         },
         withCredentials:true
       })
-        navigate("/");
-        console.log(res);
-        dispatch(setAuthUser(res.data));
+      // toast.success("Login successful!");
+      //   navigate("/");
+      //   dispatch(setAuthUser(res.data));
+      dispatch(setAuthUser(res.data));
+    toast.success("Login successful!");
+    navigate("/");
       
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message || "Login failed");
       console.log(error)
     }
      setUser({
@@ -39,6 +42,8 @@ const Login = () => {
    }
 
   return (
+    <>
+    <ToastContainer />
     <div className='w-full h-full flex items-center justify-center p-0'>
       <div className='w-full max-w-md px-0 mx-auto my-auto'>
         <div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-25 border border-gray-900'>
@@ -84,6 +89,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
