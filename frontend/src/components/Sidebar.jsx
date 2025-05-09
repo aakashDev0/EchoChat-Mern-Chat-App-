@@ -27,8 +27,8 @@ const Sidebar = () => {
     try {
       // const res = await axios.get('http://localhost:8080/api/v1/user/logout');
       const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:8080'}/api/v1/user/logout`);
-      navigate('/login');
       toast.success("Logout successful!");
+      navigate('/login');
       dispatch(setAuthUser(null))
     } catch (error) {
       console.error(error);

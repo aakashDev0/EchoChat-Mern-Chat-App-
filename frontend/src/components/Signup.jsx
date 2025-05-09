@@ -30,8 +30,8 @@ const handleCheckbox=(gender)=>{
         withCredentials:true
       })
       if(res.data.success){
-        navigate("/login")
         toast.success("Account Created Successfully!");
+        navigate("/login")
 
       }
     } catch (error) {
