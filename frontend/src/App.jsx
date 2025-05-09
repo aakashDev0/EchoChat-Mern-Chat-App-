@@ -99,7 +99,7 @@ function App() {
   ]);
   
   return (
-    <div className="p-0 sm:p-4 md:p-8 h-screen w-screen flex items-center justify-center overflow-hidden">
+    <div className="p-0 h-screen w-screen flex items-center justify-center overflow-hidden">
       <RouterProvider router={router} />
     </div>
   );

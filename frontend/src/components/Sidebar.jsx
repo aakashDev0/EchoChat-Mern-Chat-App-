@@ -85,7 +85,7 @@ const Sidebar = () => {
   }, [search, dispatch, originalUsers]);
 
   return (
-    <div className="border-r border-white/20 p-4 flex flex-col bg-gray-800/40 w-full h-full overflow-hidden">
+    <div className="border-r border-white/20 p-4 flex flex-col bg-gray-800/40 w-full md:w-80 h-full overflow-hidden">
       <div className="relative mb-3">
         <input
           value={search}

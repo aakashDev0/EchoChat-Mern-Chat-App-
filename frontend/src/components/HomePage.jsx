@@ -7,7 +7,7 @@ const HomePage = () => {
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    <div className='sm:h-[450px] md:h-[550px] lg:h-[650px] h-[100vh] flex relative rounded-xl overflow-hidden bg-white/10 backdrop-filter backdrop-blur-md bg-opacity-20 border border-white/20 shadow-xl max-w-6xl mx-auto my-auto'>
+    <div className='sm:h-[450px] md:h-[550px] lg:h-[650px] h-[100vh] flex relative rounded-xl overflow-hidden bg-white/10 backdrop-filter backdrop-blur-md bg-opacity-20 border border-white/20 shadow-xl max-w-5xl mx-auto my-auto'>
       {/* Hamburger menu button - only visible on mobile */}
       <button 
         onClick={() => setShowSidebar(!showSidebar)}
@@ -17,7 +17,7 @@ const HomePage = () => {
       </button>
       
       {/* Sidebar - hidden by default on mobile, shown when hamburger is clicked */}
-      <div className={`${showSidebar ? 'flex' : 'hidden'} md:flex absolute md:relative inset-0 z-40 md:z-auto bg-gray-900/90 md:bg-transparent md:w-1/3`}>
+      <div className={`${showSidebar ? 'flex' : 'hidden'} md:flex absolute md:relative inset-0 z-40 md:z-auto bg-gray-900/90 md:bg-transparent md:w-1/4`}>
         <Sidebar />
       </div>
       
